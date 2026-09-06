@@ -1,0 +1,31 @@
+import Link from "next/link";
+
+export default function ProgramHero() {
+  return (
+    <section className="bg-[#0B1B3A] py-20 text-white lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Link
+          href="/programs"
+          className="text-sm font-medium text-slate-300 transition hover:text-[#D4AF37]"
+        >
+          ← Back to Programs
+        </Link>
+
+        <div className="mt-10 max-w-4xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+            Senior Wellness
+          </p>
+
+          <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Tuko Pamoja
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Together, we can create communities where older adults are valued,
+            supported, connected, and able to live with dignity.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}

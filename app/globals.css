@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* MercyCare Core Brand */
+  --mc-navy: #0b1b3a;
+  --mc-navy-light: #142b52;
+  --mc-gold: #c9a227;
+  --mc-gold-light: #e3c65c;
+
+  /* Supporting Colors */
+  --mc-white: #ffffff;
+  --mc-off-white: #f8f9fb;
+  --mc-text: #172033;
+  --mc-text-muted: #667085;
+  --mc-border: #e4e7ec;
+
+  /* Semantic Colors */
+  --mc-success: #198754;
+  --mc-warning: #d99a00;
+  --mc-danger: #c9362b;
+  --mc-info: #2563eb;
+
+  /* Application */
+  --background: var(--mc-white);
+  --foreground: var(--mc-text);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-mc-navy: var(--mc-navy);
+  --color-mc-navy-light: var(--mc-navy-light);
+  --color-mc-gold: var(--mc-gold);
+  --color-mc-gold-light: var(--mc-gold-light);
+
+  --color-mc-white: var(--mc-white);
+  --color-mc-off-white: var(--mc-off-white);
+  --color-mc-text: var(--mc-text);
+  --color-mc-text-muted: var(--mc-text-muted);
+  --color-mc-border: var(--mc-border);
+
+  --color-mc-success: var(--mc-success);
+  --color-mc-warning: var(--mc-warning);
+  --color-mc-danger: var(--mc-danger);
+  --color-mc-info: var(--mc-info);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
