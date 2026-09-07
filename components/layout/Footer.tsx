@@ -4,14 +4,19 @@ import Link from "next/link";
 const quickLinks = [
   { name: "About Us", href: "/about" },
   { name: "Programs", href: "/programs" },
-  { name: "News & Announcements", href: "/news" },
+  { name: "Projects", href: "/projects" },
+  { name: "Services", href: "/services" },
+  { name: "Events", href: "/events" },
+  { name: "Activities", href: "/activities" },
+  { name: "News", href: "/news" },
   { name: "Gallery", href: "/gallery" },
-  { name: "Events & Activities", href: "/events" },
 ];
 
 const getInvolved = [
   { name: "Volunteer", href: "/volunteer" },
+  { name: "Careers", href: "/careers" },
   { name: "Donate", href: "/donate" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Footer() {
@@ -52,7 +57,7 @@ export default function Footer() {
             </p>
 
             <p className="mt-4 text-sm font-medium text-[#D4AF37]">
-              Caring for communities. Creating lasting impact.
+              Where Compassion Meets Dignity.
             </p>
           </div>
 
@@ -105,25 +110,42 @@ export default function Footer() {
             <div className="mt-5 space-y-3 text-sm text-slate-300">
               <p>
                 <span className="font-medium text-white">Email:</span>{" "}
-                info@mercycare.org
+                <a
+                  href="mailto:mercycare@villagerise.africa"
+                  className="transition-colors hover:text-white"
+                >
+                  mercycare@villagerise.africa
+                </a>
               </p>
 
               <p>
                 <span className="font-medium text-white">Phone:</span>{" "}
-                +254 XXX XXX XXX
+                <a
+                  href="tel:+254107631070"
+                  className="transition-colors hover:text-white"
+                >
+                  +254 107 631070
+                </a>
               </p>
 
               <p>
-                <span className="font-medium text-white">Location:</span>{" "}
-                Kisumu County, Kenya
+                <span className="font-medium text-white">WhatsApp:</span>{" "}
+                <a
+                  href="https://wa.me/254107631070"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
+                  +254 107 631070
+                </a>
               </p>
             </div>
 
             <Link
-              href="/donate"
+              href="/contact"
               className="mt-6 inline-flex rounded-full bg-[#D4AF37] px-6 py-3 text-sm font-semibold text-[#0B1B3A] transition hover:bg-white"
             >
-              Support MercyCare
+              Contact MercyCare
             </Link>
           </div>
         </div>

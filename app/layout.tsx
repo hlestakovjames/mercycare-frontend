@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-
 export const metadata: Metadata = {
   title: {
     default: "MercyCare",
@@ -21,11 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-white text-slate-900 antialiased">
-        <Header />
-
-        <main>{children}</main>
-
-        <Footer />
+        {children}
       </body>
     </html>
   );

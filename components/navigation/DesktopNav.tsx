@@ -5,7 +5,8 @@ const navigation = [
   { name: "Programs", href: "/programs" },
   { name: "Projects", href: "/projects" },
   { name: "Services", href: "/services" },
-  { name: "Events & Activities", href: "/events-activities" },
+  { name: "Events", href: "/events" },
+  { name: "Activities", href: "/activities" },
   { name: "News", href: "/news" },
   { name: "Blog", href: "/blog" },
   { name: "Resources", href: "/resources" },
@@ -36,13 +37,6 @@ export default function DesktopNav() {
         className="rounded-full bg-[#0B1B3A] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#162d5c]"
       >
         Donate
-      </Link>
-
-      <Link
-        href="/login"
-        className="text-sm font-semibold text-[#0B1B3A] transition-colors hover:text-[#162d5c]"
-      >
-        Login
       </Link>
     </nav>
   );

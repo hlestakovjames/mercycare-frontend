@@ -8,7 +8,8 @@ const navigation = [
   { name: "Programs", href: "/programs" },
   { name: "Projects", href: "/projects" },
   { name: "Services", href: "/services" },
-  { name: "Events & Activities", href: "/events-activities" },
+  { name: "Events", href: "/events" },
+  { name: "Activities", href: "/activities" },
   { name: "News", href: "/news" },
   { name: "Blog", href: "/blog" },
   { name: "Resources", href: "/resources" },
@@ -86,14 +87,6 @@ export default function MobileNav() {
               className="mt-5 rounded-full bg-[#0B1B3A] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#162d5c]"
             >
               Donate
-            </Link>
-
-            <Link
-              href="/login"
-              onClick={() => setIsOpen(false)}
-              className="mt-3 rounded-full border border-[#0B1B3A] px-5 py-3 text-center text-sm font-semibold text-[#0B1B3A] transition-colors hover:bg-slate-50"
-            >
-              Login
             </Link>
           </nav>
         </div>
