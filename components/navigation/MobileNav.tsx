@@ -2,25 +2,50 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-const navigation = [
-  { name: "About", href: "/about" },
-  { name: "Programs", href: "/programs" },
-  { name: "Projects", href: "/projects" },
-  { name: "Services", href: "/services" },
-  { name: "Events", href: "/events" },
-  { name: "Activities", href: "/activities" },
-  { name: "News", href: "/news" },
-  { name: "Blog", href: "/blog" },
-  { name: "Resources", href: "/resources" },
-  { name: "Gallery", href: "/gallery" },
-  { name: "Volunteer", href: "/volunteer" },
-  { name: "Careers", href: "/careers" },
-  { name: "Contact", href: "/contact" },
-];
+import {
+  mainNavigation,
+  sectionNavigation,
+} from "@/components/navigation/navigation";
+
+function getSectionKey(pathname: string) {
+  const segments = pathname.split("/").filter(Boolean);
+
+  if (segments.length === 0) {
+    return null;
+  }
+
+  const section = segments[0];
+
+  return sectionNavigation[section] ? section : null;
+}
+
+function isActiveLink(pathname: string, href: string) {
+  if (href.includes("#")) {
+    return pathname === href.split("#")[0];
+  }
+
+  if (href === "/") {
+    return pathname === "/";
+  }
+
+  return pathname === href;
+}
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const sectionKey = getSectionKey(pathname);
+
+  const navigation = sectionKey
+    ? sectionNavigation[sectionKey].items
+    : mainNavigation;
+
+  const sectionLabel = sectionKey
+    ? sectionNavigation[sectionKey].label
+    : "Mobile navigation";
 
   return (
     <div className="lg:hidden">
@@ -30,6 +55,7 @@ export default function MobileNav() {
         className="inline-flex items-center justify-center rounded-md p-2 text-[#0B1B3A] transition hover:bg-slate-100"
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={isOpen}
+        aria-controls="mobile-navigation"
       >
         {isOpen ? (
           <svg
@@ -67,19 +93,29 @@ export default function MobileNav() {
       {isOpen && (
         <div className="absolute left-0 right-0 top-full border-t border-slate-100 bg-white shadow-lg">
           <nav
+            id="mobile-navigation"
             className="mx-auto flex max-w-7xl flex-col px-6 py-5"
-            aria-label="Mobile navigation"
+            aria-label={sectionLabel}
           >
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="border-b border-slate-100 py-4 text-sm font-medium text-slate-700 transition-colors hover:text-[#0B1B3A]"
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) => {
+              const active = isActiveLink(pathname, item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  aria-current={active ? "page" : undefined}
+                  className={`border-b border-slate-100 py-4 text-sm transition-colors ${
+                    active
+                      ? "font-semibold text-[#0B1B3A]"
+                      : "font-medium text-slate-700 hover:text-[#0B1B3A]"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
 
             <Link
               href="/donate"
