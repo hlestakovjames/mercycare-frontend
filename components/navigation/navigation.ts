@@ -45,9 +45,14 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare Programs",
     href: "/programs",
     items: [
-      { name: "All Programs", href: "/programs" },
-      { name: "Tuko Pamoja", href: "/programs/tuko-pamoja" },
-      { name: "Mama na Mtoto", href: "/programs/mama-na-mtoto" },
+      { name: "Overview", href: "/programs" },
+      { name: "Our Approach", href: "/programs/approach" },
+      { name: "Program Areas", href: "/programs/areas" },
+      { name: "Our Programs", href: "/programs/our-programs" },
+      { name: "How We Work", href: "/programs/how-we-work" },
+      { name: "Impact", href: "/programs/impact" },
+      { name: "Partnerships", href: "/programs/partnerships" },
+      { name: "Get Involved", href: "/programs/get-involved" },
     ],
   },
 
