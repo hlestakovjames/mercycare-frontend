@@ -1,92 +1,72 @@
 const activities = [
   {
-    number: "01",
     title: "Maternal Health Education",
     description:
-      "Community sessions providing practical information on maternal wellbeing, healthy practices, pregnancy preparation and care after childbirth.",
+      "Accessible information and awareness activities that can support informed maternal health and wellbeing decisions.",
   },
   {
-    number: "02",
-    title: "Mother & Baby Wellness Support",
+    title: "Child Health & Wellbeing",
     description:
-      "Activities that promote maternal and newborn wellbeing while helping families understand appropriate care, monitoring and available support.",
+      "Community-oriented initiatives focused on appropriate child health, development, wellbeing, and care.",
   },
   {
-    number: "03",
-    title: "Child Growth & Development Education",
+    title: "Family Support",
     description:
-      "Family-focused education on nutrition, healthy development, early childhood stimulation and recognising developmental concerns.",
+      "Activities that encourage families and caregivers to participate actively in supporting mothers and children.",
   },
   {
-    number: "04",
-    title: "Parent & Caregiver Support",
+    title: "Community Awareness",
     description:
-      "Practical guidance that helps parents and caregivers build confidence in caring for mothers, babies and young children.",
+      "Initiatives that promote understanding of maternal and child wellbeing, prevention, healthy practices, and available support.",
   },
   {
-    number: "05",
-    title: "Community Outreach",
+    title: "Professional & Community Engagement",
     description:
-      "Community engagement activities that connect families with MercyCare, local partners and appropriate health and support resources.",
-  },
-  {
-    number: "06",
-    title: "Referral & Support Connections",
-    description:
-      "Helping families understand where to seek appropriate professional assistance when maternal or child health concerns require further attention.",
+      "Appropriate collaboration between families, communities, healthcare professionals, volunteers, and other stakeholders.",
   },
 ];
 
 export default function ProjectActivities() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
               Project Activities
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
-              Turning support into practical action
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
+              Practical activities around maternal and child wellbeing.
             </h2>
 
-            <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-              Mama na Mtoto combines education, community engagement and
-              practical family support to promote maternal and child
-              wellbeing.
+            <p className="mt-6 text-base leading-8 text-slate-600">
+              Specific activities may vary depending on community needs,
+              partnerships, resources, and the purpose of each initiative.
             </p>
-
-            <div className="mt-8 rounded-2xl bg-[#0B1B3A] p-7 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#D4AF37]">
-                Community First
-              </p>
-
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                Activities are designed to work alongside families and
-                communities, making support more accessible while encouraging
-                appropriate professional care when it is needed.
-              </p>
-            </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            {activities.map((activity) => (
+          <div className="space-y-4">
+            {activities.map((activity, index) => (
               <article
-                key={activity.number}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
+                key={activity.title}
+                className="rounded-2xl border border-slate-200 p-6"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37] text-sm font-bold text-[#0B1B3A]">
-                  {activity.number}
+                <div className="flex gap-5">
+                  <span className="shrink-0 text-sm font-bold text-[#D4AF37]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-[#0B1B3A]">
+                      {activity.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-7 text-slate-600">
+                      {activity.description}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="mt-5 text-lg font-semibold text-[#0B1B3A]">
-                  {activity.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {activity.description}
-                </p>
               </article>
             ))}
           </div>

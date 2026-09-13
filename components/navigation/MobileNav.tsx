@@ -98,22 +98,56 @@ export default function MobileNav() {
             aria-label={sectionLabel}
           >
             {navigation.map((item) => {
-              const active = isActiveLink(pathname, item.href);
+              const active =
+                isActiveLink(pathname, item.href) ||
+                item.children?.some((child) =>
+                  isActiveLink(pathname, child.href),
+                );
 
               return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  aria-current={active ? "page" : undefined}
-                  className={`border-b border-slate-100 py-4 text-sm transition-colors ${
-                    active
-                      ? "font-semibold text-[#0B1B3A]"
-                      : "font-medium text-slate-700 hover:text-[#0B1B3A]"
-                  }`}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.href} className="border-b border-slate-100">
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`block py-4 text-sm transition-colors ${
+                      active
+                        ? "font-semibold text-[#0B1B3A]"
+                        : "font-medium text-slate-700 hover:text-[#0B1B3A]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+
+                  {item.children?.length ? (
+                    <div className="mb-3 ml-4 border-l border-slate-200 pl-4">
+                      {item.children.map((child) => {
+                        const childActive = isActiveLink(
+                          pathname,
+                          child.href,
+                        );
+
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setIsOpen(false)}
+                            aria-current={
+                              childActive ? "page" : undefined
+                            }
+                            className={`block py-2.5 text-sm transition-colors ${
+                              childActive
+                                ? "font-semibold text-[#0B1B3A]"
+                                : "font-medium text-slate-500 hover:text-[#0B1B3A]"
+                            }`}
+                          >
+                            {child.name}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  ) : null}
+                </div>
               );
             })}
 

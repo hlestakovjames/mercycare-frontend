@@ -2,54 +2,35 @@ import Link from "next/link";
 
 export default function ProjectCTA() {
   return (
-    <section className="bg-slate-50 py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#0B1B3A] px-6 py-14 text-center shadow-xl sm:px-12 sm:py-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+    <section className="bg-slate-50 py-20 lg:py-24">
+      <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+          Mama na Mtoto
+        </p>
+
+        <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
+          Supporting healthier mothers, children, and families.
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600">
+          Explore MercyCare's wider project work or discover ways to contribute
+          to community health and wellbeing initiatives.
+        </p>
+
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Link
+            href="/projects/get-involved"
+            className="rounded-full bg-[#0B1B3A] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#162d5c]"
+          >
             Get Involved
-          </p>
+          </Link>
 
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Help us support mothers and children
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300">
-            Your involvement can help MercyCare strengthen maternal and child
-            wellbeing through community engagement, practical support and
-            meaningful partnerships.
-          </p>
-
-          <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/volunteer"
-              className="inline-flex items-center justify-center rounded-full bg-[#D4AF37] px-6 py-3 text-sm font-semibold text-[#0B1B3A] transition hover:bg-[#e3c45a]"
-            >
-              Volunteer With Us
-            </Link>
-
-            <Link
-              href="/donate"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Support the Project
-            </Link>
-
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Partner With Us
-            </Link>
-          </div>
-
-          <div className="mt-8">
-            <Link
-              href="/projects"
-              className="text-sm font-medium text-slate-300 transition hover:text-white"
-            >
-              ← Explore Other MercyCare Projects
-            </Link>
-          </div>
+          <Link
+            href="/projects/our-projects"
+            className="rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-[#0B1B3A] transition hover:border-[#0B1B3A]"
+          >
+            Other Projects
+          </Link>
         </div>
       </div>
     </section>

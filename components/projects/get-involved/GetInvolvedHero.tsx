@@ -1,0 +1,32 @@
+import Link from "next/link";
+
+export default function GetInvolvedHero() {
+  return (
+    <section className="bg-[#0B1B3A] py-20 text-white lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <Link
+          href="/projects"
+          className="text-sm font-medium text-slate-300 transition hover:text-[#D4AF37]"
+        >
+          ← Back to Projects
+        </Link>
+
+        <div className="mt-10 max-w-4xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+            Get Involved
+          </p>
+
+          <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            There are many ways to contribute to community wellbeing.
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+            Whether through time, skills, partnerships, resources, or
+            community participation, your contribution can help MercyCare
+            develop meaningful initiatives.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,21 +1,23 @@
-import ServiceHero from "@/components/services/home-nursing/ServiceHero";
-import ServiceOverview from "@/components/services/home-nursing/ServiceOverview";
-import WhatWeProvide from "@/components/services/home-nursing/WhatWeProvide";
-import WhoThisServiceIsFor from "@/components/services/home-nursing/WhoThisServiceIsFor";
-import HowItWorks from "@/components/services/home-nursing/HowItWorks";
-import WhyMercyCare from "@/components/services/home-nursing/WhyMercyCare";
-import ServiceCTA from "@/components/services/home-nursing/ServiceCTA";
+import HomeNursingHero from "@/components/services/home-nursing/HomeNursingHero";
+import HomeNursingOverview from "@/components/services/home-nursing/HomeNursingOverview";
+import HomeNursingSupport from "@/components/services/home-nursing/HomeNursingSupport";
+import HomeNursingWhoWeServe from "@/components/services/home-nursing/HomeNursingWhoWeServe";
+import HomeNursingProcess from "@/components/services/home-nursing/HomeNursingProcess";
+import HomeNursingFamily from "@/components/services/home-nursing/HomeNursingFamily";
+import HomeNursingPrinciples from "@/components/services/home-nursing/HomeNursingPrinciples";
+import HomeNursingCTA from "@/components/services/home-nursing/HomeNursingCTA";
 
 export default function HomeNursingPage() {
   return (
     <main>
-      <ServiceHero />
-      <ServiceOverview />
-      <WhatWeProvide />
-      <WhoThisServiceIsFor />
-      <HowItWorks />
-      <WhyMercyCare />
-      <ServiceCTA />
+      <HomeNursingHero />
+      <HomeNursingOverview />
+      <HomeNursingSupport />
+      <HomeNursingWhoWeServe />
+      <HomeNursingProcess />
+      <HomeNursingFamily />
+      <HomeNursingPrinciples />
+      <HomeNursingCTA />
     </main>
   );
 }

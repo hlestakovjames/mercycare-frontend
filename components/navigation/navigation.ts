@@ -1,6 +1,7 @@
 export type NavigationItem = {
   name: string;
   href: string;
+  children?: NavigationItem[];
 };
 
 export type SectionNavigation = {
@@ -60,9 +61,20 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare Projects",
     href: "/projects",
     items: [
-      { name: "All Projects", href: "/projects" },
-      { name: "Tuko Pamoja", href: "/projects/tuko-pamoja" },
-      { name: "Mama na Mtoto", href: "/projects/mama-na-mtoto" },
+      { name: "Overview", href: "/projects" },
+      { name: "Project Areas", href: "/projects/areas" },
+      {
+        name: "Our Projects",
+        href: "/projects/our-projects",
+        children: [
+          { name: "Tuko Pamoja", href: "/projects/tuko-pamoja" },
+          { name: "Mama na Mtoto", href: "/projects/mama-na-mtoto" },
+        ],
+      },
+      { name: "How We Work", href: "/projects/how-we-work" },
+      { name: "Impact", href: "/projects/impact" },
+      { name: "Partnerships", href: "/projects/partnerships" },
+      { name: "Get Involved", href: "/projects/get-involved" },
     ],
   },
 
@@ -70,12 +82,40 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "Home Health Services",
     href: "/services",
     items: [
-      { name: "All Services", href: "/services" },
-      { name: "Home Nursing", href: "/services/home-nursing" },
+      { name: "Overview", href: "/services" },
+      { name: "Service Areas", href: "/services/areas" },
       {
-        name: "Special Needs Children",
-        href: "/services/special-needs-children",
+        name: "Our Services",
+        href: "/services/our-services",
+        children: [
+          { name: "Home Nursing", href: "/services/home-nursing" },
+          { name: "Senior & Elderly Care", href: "/services/senior-elderly-care" },
+          {
+            name: "Special Needs Children",
+            href: "/services/special-needs-children",
+          },
+          {
+            name: "Post-Hospital & Recovery Care",
+            href: "/services/post-hospital-recovery",
+          },
+          { name: "Chronic Care Support", href: "/services/chronic-care" },
+          {
+            name: "Palliative & Comfort Care",
+            href: "/services/palliative-comfort-care",
+          },
+          { name: "Personal Care Assistance", href: "/services/personal-care" },
+          {
+            name: "Family & Caregiver Support",
+            href: "/services/family-caregiver-support",
+          },
+        ],
       },
+      { name: "How We Work", href: "/services/how-we-work" },
+      { name: "Care Approach", href: "/services/care-approach" },
+      { name: "Who We Serve", href: "/services/who-we-serve" },
+      { name: "Quality & Safety", href: "/services/quality-safety" },
+      { name: "Partnerships", href: "/services/partnerships" },
+      { name: "Get Started", href: "/services/get-started" },
     ],
   },
 
@@ -83,9 +123,14 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare Events",
     href: "/events",
     items: [
-      { name: "All Events", href: "/events" },
+      { name: "Overview", href: "/events" },
       { name: "Upcoming Events", href: "/events/upcoming" },
       { name: "Past Events", href: "/events/past" },
+      { name: "Event Calendar", href: "/events/calendar" },
+      { name: "Community Events", href: "/events/community" },
+      { name: "Health & Wellness Events", href: "/events/health-wellness" },
+      { name: "Awareness Events", href: "/events/awareness" },
+      { name: "Get Involved", href: "/events/get-involved" },
     ],
   },
 

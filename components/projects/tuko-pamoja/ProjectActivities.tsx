@@ -1,92 +1,72 @@
-export default function ProjectActivities() {
-  const activities = [
-    {
-      number: "01",
-      title: "Senior Wellness Sessions",
-      description:
-        "Community-based wellness sessions that promote healthy ageing, physical activity, preventive health and overall wellbeing among older adults.",
-    },
-    {
-      number: "02",
-      title: "Health Education & Screening",
-      description:
-        "Accessible health education and basic wellness screening activities that help seniors and families identify health concerns early and make informed decisions.",
-    },
-    {
-      number: "03",
-      title: "Social & Community Engagement",
-      description:
-        "Meaningful gatherings and activities that encourage social interaction, companionship, participation and stronger relationships among older adults.",
-    },
-    {
-      number: "04",
-      title: "Family & Caregiver Education",
-      description:
-        "Practical education and guidance for families and caregivers on supporting older adults with dignity, safety, nutrition, mobility and everyday wellbeing.",
-    },
-    {
-      number: "05",
-      title: "Physical Activity & Mobility",
-      description:
-        "Age-appropriate movement and mobility activities designed to encourage physical independence, strength, balance and confidence.",
-    },
-    {
-      number: "06",
-      title: "Community Outreach",
-      description:
-        "Outreach activities that connect MercyCare with seniors, families, community leaders and partners while identifying areas where additional support is needed.",
-    },
-  ];
+const activities = [
+  {
+    title: "Senior Wellness Activities",
+    description:
+      "Appropriate activities that encourage wellbeing, participation, social connection, and healthy living among older adults.",
+  },
+  {
+    title: "Community Engagement",
+    description:
+      "Initiatives that connect older adults with families, communities, volunteers, and other relevant stakeholders.",
+  },
+  {
+    title: "Health Education",
+    description:
+      "Accessible health and wellbeing information that can help older adults and their support networks make informed decisions.",
+  },
+  {
+    title: "Caregiver & Family Support",
+    description:
+      "Opportunities to strengthen understanding and practical support for families and people involved in caring for older adults.",
+  },
+  {
+    title: "Wellbeing Outreach",
+    description:
+      "Community-oriented activities designed around identified senior wellness needs and appropriate opportunities for engagement.",
+  },
+];
 
+export default function ProjectActivities() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-              What We Do
+              Project Activities
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
-              Turning care into meaningful community action
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
+              Turning the project's purpose into practical action.
             </h2>
 
-            <p className="mt-5 max-w-xl text-base leading-8 text-slate-600">
-              Tuko Pamoja brings together wellness, education, social
-              connection and community support to help older adults live
-              healthier and more fulfilling lives.
+            <p className="mt-6 text-base leading-8 text-slate-600">
+              Specific activities may vary according to the needs of the
+              communities and people participating in each initiative.
             </p>
-
-            <div className="mt-8 rounded-2xl bg-[#0B1B3A] p-7 text-white">
-              <p className="text-sm font-semibold uppercase tracking-[0.15em] text-[#D4AF37]">
-                Our Approach
-              </p>
-
-              <p className="mt-4 text-sm leading-7 text-slate-200">
-                We work alongside older adults, families, caregivers,
-                healthcare professionals and community partners to create
-                practical and sustainable support systems.
-              </p>
-            </div>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            {activities.map((activity) => (
+          <div className="space-y-4">
+            {activities.map((activity, index) => (
               <article
-                key={activity.number}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:bg-white hover:shadow-md"
+                key={activity.title}
+                className="rounded-2xl border border-slate-200 p-6"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#D4AF37] text-sm font-bold text-[#0B1B3A]">
-                  {activity.number}
+                <div className="flex gap-5">
+                  <span className="shrink-0 text-sm font-bold text-[#D4AF37]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <div>
+                    <h3 className="text-lg font-bold text-[#0B1B3A]">
+                      {activity.title}
+                    </h3>
+
+                    <p className="mt-2 text-sm leading-7 text-slate-600">
+                      {activity.description}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="mt-5 text-lg font-semibold text-[#0B1B3A]">
-                  {activity.title}
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-600">
-                  {activity.description}
-                </p>
               </article>
             ))}
           </div>

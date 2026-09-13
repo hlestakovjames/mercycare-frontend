@@ -1,49 +1,38 @@
 export default function ProjectOverview() {
   return (
-    <section className="bg-white py-20 sm:py-24">
+    <section className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-              About the Project
+              Project Overview
             </p>
 
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
-              Care that supports the whole family
+            <h2 className="mt-4 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">
+              Supporting mothers, children, and families.
             </h2>
           </div>
 
-          <div className="space-y-5 text-base leading-8 text-slate-600">
+          <div className="space-y-6 text-base leading-8 text-slate-600">
             <p>
-              Mama na Mtoto is designed around the understanding that the
-              wellbeing of a mother and child is closely connected to the
-              wellbeing of the entire family and community.
+              Mama na Mtoto is a MercyCare project focused on maternal and
+              child wellbeing. It provides a framework for community-oriented
+              initiatives that respond to the needs of mothers, children, and
+              families.
             </p>
 
             <p>
-              The project brings together maternal wellbeing, child health,
-              health education, early development and practical family
-              support through community-centered initiatives.
+              The project recognises that maternal and child wellbeing is
+              connected to health information, appropriate support, family
+              participation, professional care, and the wider environment in
+              which families live.
             </p>
 
             <p>
-              MercyCare aims to make reliable information, compassionate
-              support and appropriate referrals more accessible to mothers,
-              caregivers and families, while encouraging healthy practices
-              from pregnancy through early childhood.
+              Individual initiatives can therefore be shaped around specific
+              community needs while remaining connected to MercyCare's broader
+              maternal, child, family, and healthcare work.
             </p>
-
-            <div className="rounded-2xl bg-slate-50 p-6">
-              <h3 className="font-semibold text-[#0B1B3A]">
-                Our focus
-              </h3>
-
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                Supporting healthier mothers, healthier children and stronger
-                families through education, community engagement, early
-                support and connections to appropriate care.
-              </p>
-            </div>
           </div>
         </div>
       </div>
