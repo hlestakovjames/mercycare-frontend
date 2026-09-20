@@ -138,14 +138,38 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare Activities",
     href: "/activities",
     items: [
-      { name: "All Activities", href: "/activities" },
+      { name: "Overview", href: "/activities" },
       {
-        name: "Community Activities",
-        href: "/activities/community",
+        name: "Community Outreach",
+        href: "/activities/community-outreach",
       },
       {
-        name: "Health Activities",
-        href: "/activities/health",
+        name: "Health & Wellness Activities",
+        href: "/activities/health-wellness",
+      },
+      {
+        name: "Senior Support Activities",
+        href: "/activities/senior-support",
+      },
+      {
+        name: "Family & Caregiver Activities",
+        href: "/activities/family-caregiver",
+      },
+      {
+        name: "Awareness & Education",
+        href: "/activities/awareness-education",
+      },
+      {
+        name: "Volunteer Activities",
+        href: "/activities/volunteer",
+      },
+      {
+        name: "Past Activities",
+        href: "/activities/past",
+      },
+      {
+        name: "Get Involved",
+        href: "/activities/get-involved",
       },
     ],
   },
