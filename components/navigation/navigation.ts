@@ -178,8 +178,33 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare News",
     href: "/news",
     items: [
-      { name: "Latest News", href: "/news" },
-      { name: "Announcements", href: "/news/announcements" },
+      { name: "Overview", href: "/news" },
+      { name: "Latest News", href: "/news/latest" },
+      { name: "Community News", href: "/news/community" },
+      {
+        name: "Health & Wellness News",
+        href: "/news/health-wellness",
+      },
+      {
+        name: "MercyCare Updates",
+        href: "/news/updates",
+      },
+      {
+        name: "Announcements",
+        href: "/news/announcements",
+      },
+      {
+        name: "Media & Press",
+        href: "/news/media-press",
+      },
+      {
+        name: "News Archive",
+        href: "/news/archive",
+      },
+      {
+        name: "Get Involved",
+        href: "/news/get-involved",
+      },
     ],
   },
 
