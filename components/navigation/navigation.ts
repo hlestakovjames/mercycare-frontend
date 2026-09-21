@@ -683,9 +683,15 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "Contact MercyCare",
     href: "/contact",
     items: [
-      { name: "Contact Us", href: "/contact" },
-      { name: "Find Us", href: "/contact/find-us" },
-      { name: "Send an Enquiry", href: "/contact/enquiry" },
+      { name: "Overview", href: "/contact" },
+      { name: "Get in Touch", href: "/contact/get-in-touch" },
+      { name: "Our Locations", href: "/contact/locations" },
+      { name: "Service Enquiries", href: "/contact/service-enquiries" },
+      { name: "General Enquiries", href: "/contact/general-enquiries" },
+      { name: "Partnerships", href: "/contact/partnerships" },
+      { name: "Referrals & Care Enquiries", href: "/contact/referrals" },
+      { name: "Feedback", href: "/contact/feedback" },
+      { name: "Frequently Asked Questions", href: "/contact/faq" },
     ],
   },
 
