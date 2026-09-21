@@ -659,9 +659,42 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "Support MercyCare",
     href: "/donate",
     items: [
-      { name: "Donate", href: "/donate" },
-      { name: "Ways to Give", href: "/donate/ways-to-give" },
-      { name: "Your Impact", href: "/donate/impact" },
+      {
+        name: "Overview",
+        href: "/donate",
+      },
+      {
+        name: "Donate",
+        href: "/donate/give",
+      },
+      {
+        name: "Ways to Give",
+        href: "/donate/ways-to-give",
+      },
+      {
+        name: "Your Impact",
+        href: "/donate/impact",
+      },
+      {
+        name: "Fund a Program",
+        href: "/donate/fund-a-program",
+      },
+      {
+        name: "Corporate & Organisation Giving",
+        href: "/donate/organisations",
+      },
+      {
+        name: "Fundraising & Campaigns",
+        href: "/donate/campaigns",
+      },
+      {
+        name: "Giving FAQ",
+        href: "/donate/faq",
+      },
+      {
+        name: "Get Involved",
+        href: "/donate/get-involved",
+      },
     ],
   },
 };
