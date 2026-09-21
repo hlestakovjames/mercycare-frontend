@@ -604,9 +604,13 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "Volunteer With MercyCare",
     href: "/volunteer",
     items: [
-      { name: "Volunteer With Us", href: "/volunteer" },
+      { name: "Overview", href: "/volunteer" },
+      { name: "Volunteer With Us", href: "/volunteer/with-us" },
       { name: "Opportunities", href: "/volunteer/opportunities" },
       { name: "How It Works", href: "/volunteer/how-it-works" },
+      { name: "Volunteer Areas", href: "/volunteer/areas" },
+      { name: "Volunteer Requirements", href: "/volunteer/requirements" },
+      { name: "Get Involved", href: "/volunteer/get-involved" },
     ],
   },
 
