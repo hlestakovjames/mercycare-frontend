@@ -618,8 +618,30 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "Careers at MercyCare",
     href: "/careers",
     items: [
-      { name: "Careers at MercyCare", href: "/careers" },
-      { name: "Open Positions", href: "/careers/open-positions" },
+      {
+        name: "Overview",
+        href: "/careers",
+      },
+      {
+        name: "Why Work With Us",
+        href: "/careers/why-work-with-us",
+      },
+      {
+        name: "Open Positions",
+        href: "/careers/open-positions",
+      },
+      {
+        name: "How We Hire",
+        href: "/careers/how-we-hire",
+      },
+      {
+        name: "Requirements",
+        href: "/careers/requirements",
+      },
+      {
+        name: "Careers FAQ",
+        href: "/careers/faq",
+      },
     ],
   },
 
