@@ -209,11 +209,322 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
   },
 
   blog: {
-    label: "MercyCare Blog",
+    label: "MercyCare Media Center",
     href: "/blog",
     items: [
-      { name: "All Articles", href: "/blog" },
+      { name: "Overview", href: "/blog" },
       { name: "Featured", href: "/blog/featured" },
+      { name: "Stories", href: "/blog/stories" },
+
+      {
+        name: "Care & Wellness",
+        href: "/blog/care-wellness",
+        children: [
+          { name: "Overview", href: "/blog/care-wellness" },
+          {
+            name: "Healthy Living",
+            href: "/blog/care-wellness/healthy-living",
+          },
+          {
+            name: "Senior Wellness",
+            href: "/blog/care-wellness/senior-wellness",
+          },
+          {
+            name: "Caregiving",
+            href: "/blog/care-wellness/caregiving",
+            children: [
+              {
+                name: "Family Caregiving",
+                href: "/blog/care-wellness/caregiving/family-caregiving",
+              },
+              {
+                name: "Caregiver Wellbeing",
+                href: "/blog/care-wellness/caregiving/caregiver-wellbeing",
+              },
+              {
+                name: "Practical Caregiving",
+                href: "/blog/care-wellness/caregiving/practical-caregiving",
+              },
+              {
+                name: "Caregiver Resources",
+                href: "/blog/care-wellness/caregiving/caregiver-resources",
+              },
+            ],
+          },
+          {
+            name: "Home-Based Care",
+            href: "/blog/care-wellness/home-based-care",
+          },
+          {
+            name: "Palliative & Comfort Care",
+            href: "/blog/care-wellness/palliative-comfort-care",
+          },
+        ],
+      },
+
+      {
+        name: "Family & Community",
+        href: "/blog/family-community",
+        children: [
+          { name: "Overview", href: "/blog/family-community" },
+          {
+            name: "Family Life",
+            href: "/blog/family-community/family-life",
+          },
+          {
+            name: "Parenting & Child Wellbeing",
+            href: "/blog/family-community/parenting-child-wellbeing",
+          },
+          {
+            name: "Community Health",
+            href: "/blog/family-community/community-health",
+          },
+          {
+            name: "Community Voices",
+            href: "/blog/family-community/community-voices",
+          },
+          {
+            name: "Social Wellbeing",
+            href: "/blog/family-community/social-wellbeing",
+          },
+        ],
+      },
+
+      {
+        name: "Programs & Projects",
+        href: "/blog/programs-projects",
+        children: [
+          {
+            name: "Overview",
+            href: "/blog/programs-projects",
+          },
+          {
+            name: "Tuko Pamoja",
+            href: "/blog/programs-projects/tuko-pamoja",
+            children: [
+              {
+                name: "Stories",
+                href: "/blog/programs-projects/tuko-pamoja/stories",
+              },
+              {
+                name: "Wellness",
+                href: "/blog/programs-projects/tuko-pamoja/wellness",
+              },
+              {
+                name: "Community",
+                href: "/blog/programs-projects/tuko-pamoja/community",
+              },
+              {
+                name: "Updates",
+                href: "/blog/programs-projects/tuko-pamoja/updates",
+              },
+            ],
+          },
+          {
+            name: "Mama na Mtoto",
+            href: "/blog/programs-projects/mama-na-mtoto",
+            children: [
+              {
+                name: "Stories",
+                href: "/blog/programs-projects/mama-na-mtoto/stories",
+              },
+              {
+                name: "Maternal Wellbeing",
+                href: "/blog/programs-projects/mama-na-mtoto/maternal-wellbeing",
+              },
+              {
+                name: "Child Wellbeing",
+                href: "/blog/programs-projects/mama-na-mtoto/child-wellbeing",
+              },
+              {
+                name: "Community",
+                href: "/blog/programs-projects/mama-na-mtoto/community",
+              },
+            ],
+          },
+          {
+            name: "Other Initiatives",
+            href: "/blog/programs-projects/other-initiatives",
+          },
+        ],
+      },
+
+      {
+        name: "Voices",
+        href: "/blog/voices",
+        children: [
+          { name: "Overview", href: "/blog/voices" },
+          {
+            name: "Community Voices",
+            href: "/blog/voices/community-voices",
+          },
+          {
+            name: "Caregiver Voices",
+            href: "/blog/voices/caregiver-voices",
+          },
+          {
+            name: "Professional Perspectives",
+            href: "/blog/voices/professional-perspectives",
+          },
+          {
+            name: "Partner Voices",
+            href: "/blog/voices/partner-voices",
+          },
+          {
+            name: "MercyCare Voices",
+            href: "/blog/voices/mercycare-voices",
+          },
+        ],
+      },
+
+      {
+        name: "Interviews",
+        href: "/blog/interviews",
+        children: [
+          { name: "Overview", href: "/blog/interviews" },
+          {
+            name: "Community Conversations",
+            href: "/blog/interviews/community-conversations",
+          },
+          {
+            name: "Care Conversations",
+            href: "/blog/interviews/care-conversations",
+          },
+          {
+            name: "Expert Conversations",
+            href: "/blog/interviews/expert-conversations",
+          },
+          {
+            name: "Partner Conversations",
+            href: "/blog/interviews/partner-conversations",
+          },
+        ],
+      },
+
+      {
+        name: "Features",
+        href: "/blog/features",
+        children: [
+          { name: "Overview", href: "/blog/features" },
+          {
+            name: "Long Reads",
+            href: "/blog/features/long-reads",
+          },
+          {
+            name: "Special Features",
+            href: "/blog/features/special-features",
+          },
+          {
+            name: "Field Stories",
+            href: "/blog/features/field-stories",
+          },
+          {
+            name: "Photo Features",
+            href: "/blog/features/photo-features",
+          },
+        ],
+      },
+
+      {
+        name: "Media",
+        href: "/blog/media",
+        children: [
+          { name: "Overview", href: "/blog/media" },
+          {
+            name: "Videos",
+            href: "/blog/media/videos",
+          },
+          {
+            name: "Podcasts",
+            href: "/blog/media/podcasts",
+          },
+          {
+            name: "Photo Stories",
+            href: "/blog/media/photo-stories",
+          },
+          {
+            name: "Multimedia Features",
+            href: "/blog/media/multimedia-features",
+          },
+        ],
+      },
+
+      {
+        name: "Resources",
+        href: "/blog/resources",
+        children: [
+          { name: "Overview", href: "/blog/resources" },
+          {
+            name: "Care Guides",
+            href: "/blog/resources/care-guides",
+          },
+          {
+            name: "Wellness Guides",
+            href: "/blog/resources/wellness-guides",
+          },
+          {
+            name: "Family Resources",
+            href: "/blog/resources/family-resources",
+          },
+          {
+            name: "Caregiver Resources",
+            href: "/blog/resources/caregiver-resources",
+          },
+          {
+            name: "Downloadable Resources",
+            href: "/blog/resources/downloadable",
+          },
+        ],
+      },
+
+      {
+        name: "Editorial",
+        href: "/blog/editorial",
+        children: [
+          {
+            name: "About the Media Center",
+            href: "/blog/editorial/about",
+          },
+          {
+            name: "Editorial Standards",
+            href: "/blog/editorial/standards",
+          },
+          {
+            name: "Contributors",
+            href: "/blog/editorial/contributors",
+          },
+          {
+            name: "Submit a Story",
+            href: "/blog/editorial/submit",
+          },
+        ],
+      },
+
+      {
+        name: "Archive",
+        href: "/blog/archive",
+        children: [
+          { name: "Overview", href: "/blog/archive" },
+          {
+            name: "By Year",
+            href: "/blog/archive/year",
+          },
+          {
+            name: "By Category",
+            href: "/blog/archive/category",
+          },
+          {
+            name: "By Topic",
+            href: "/blog/archive/topic",
+          },
+          {
+            name: "Search",
+            href: "/blog/archive/search",
+          },
+        ],
+      },
+
+      { name: "Get Involved", href: "/blog/get-involved" },
     ],
   },
 
