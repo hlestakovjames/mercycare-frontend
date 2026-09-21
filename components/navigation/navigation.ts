@@ -532,11 +532,45 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare Resources",
     href: "/resources",
     items: [
-      { name: "All Resources", href: "/resources" },
-      { name: "Care Guides", href: "/resources/care-guides" },
+      {
+        name: "Overview",
+        href: "/resources",
+      },
+      {
+        name: "Care Guides",
+        href: "/resources/care-guides",
+      },
       {
         name: "Health Information",
         href: "/resources/health-information",
+      },
+      {
+        name: "Family & Caregiver Resources",
+        href: "/resources/family-caregiver",
+      },
+      {
+        name: "Senior Wellness Resources",
+        href: "/resources/senior-wellness",
+      },
+      {
+        name: "Maternal & Child Resources",
+        href: "/resources/maternal-child",
+      },
+      {
+        name: "Community Resources",
+        href: "/resources/community",
+      },
+      {
+        name: "Downloads",
+        href: "/resources/downloads",
+      },
+      {
+        name: "Frequently Asked Questions",
+        href: "/resources/faq",
+      },
+      {
+        name: "Resource Archive",
+        href: "/resources/archive",
       },
     ],
   },
