@@ -590,3 +590,91 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     ],
   },
 };
+
+export function getContextualNavigation(pathname: string): {
+  navigation: NavigationItem[];
+  label: string;
+} {
+  const segments = pathname.split("/").filter(Boolean);
+
+  if (segments.length === 0) {
+    return {
+      navigation: mainNavigation,
+      label: "Main navigation",
+    };
+  }
+
+  const section = segments[0];
+
+  if (section !== "blog") {
+    const sectionConfig = sectionNavigation[section];
+
+    if (sectionConfig) {
+      return {
+        navigation: sectionConfig.items,
+        label: sectionConfig.label,
+      };
+    }
+
+    return {
+      navigation: mainNavigation,
+      label: "Main navigation",
+    };
+  }
+
+  const blogSection = sectionNavigation.blog;
+
+  let currentItems = blogSection.items;
+  let currentLabel = blogSection.label;
+  let bestNavigation = blogSection.items;
+  let bestLabel = blogSection.label;
+
+  const findBlogContext = (
+    items: NavigationItem[],
+    currentIndex: number,
+  ): void => {
+    for (const item of items) {
+      const hrefSegments = item.href.split("/").filter(Boolean);
+
+      if (
+        hrefSegments.length > currentIndex &&
+        hrefSegments[currentIndex] === segments[currentIndex]
+      ) {
+        if (item.children?.length) {
+          bestNavigation = item.children;
+          bestLabel = item.name;
+        }
+
+        if (
+          hrefSegments.length === segments.length &&
+          item.children?.length
+        ) {
+          bestNavigation = item.children;
+          bestLabel = item.name;
+          return;
+        }
+
+        if (item.children?.length) {
+          findBlogContext(item.children, currentIndex + 1);
+        }
+
+        return;
+      }
+    }
+  };
+
+  if (segments.length === 1 && segments[0] === "blog") {
+    return {
+      navigation: blogSection.items,
+      label: blogSection.label,
+    };
+  }
+
+  findBlogContext(currentItems, 1);
+
+  return {
+    navigation: bestNavigation,
+    label: bestLabel || currentLabel,
+  };
+}
+

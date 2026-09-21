@@ -5,22 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import {
-  mainNavigation,
-  sectionNavigation,
+  getContextualNavigation,
   type NavigationItem,
 } from "@/components/navigation/navigation";
-
-function getSectionKey(pathname: string) {
-  const segments = pathname.split("/").filter(Boolean);
-
-  if (segments.length === 0) {
-    return null;
-  }
-
-  const section = segments[0];
-
-  return sectionNavigation[section] ? section : null;
-}
 
 function isActiveLink(pathname: string, href: string) {
   if (href.includes("#")) {
@@ -76,10 +63,10 @@ function MobileMenuItem({
       <Link
         href={item.href}
         onClick={onNavigate}
-        aria-current={isActiveLink(pathname, item.href) ? "page" : undefined}
-        className={`block rounded-lg py-3 text-sm transition-colors ${
-          depth === 0 ? "font-medium" : "font-medium"
-        } ${
+        aria-current={
+          isActiveLink(pathname, item.href) ? "page" : undefined
+        }
+        className={`block rounded-lg py-3 text-sm font-medium transition-colors ${
           isActiveLink(pathname, item.href)
             ? "font-semibold text-[#0B1B3A]"
             : depth === 0
@@ -123,7 +110,7 @@ function MobileMenuItem({
           onClick={() => setIsExpanded((current) => !current)}
           aria-expanded={isExpanded}
           aria-label={`${isExpanded ? "Collapse" : "Expand"} ${item.name}`}
-          className="rounded-md p-2 text-slate-500 transition hover:bg-slate-100 hover:text-[#0B1B3A]"
+          className="shrink-0 rounded-md p-2 text-slate-500 transition hover:bg-slate-100 hover:text-[#0B1B3A]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -166,15 +153,7 @@ export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
-  const sectionKey = getSectionKey(pathname);
-
-  const navigation = sectionKey
-    ? sectionNavigation[sectionKey].items
-    : mainNavigation;
-
-  const sectionLabel = sectionKey
-    ? sectionNavigation[sectionKey].label
-    : "Mobile navigation";
+  const { navigation, label } = getContextualNavigation(pathname);
 
   const closeNavigation = () => {
     setIsOpen(false);
@@ -224,29 +203,31 @@ export default function MobileNav() {
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 right-0 top-full border-t border-slate-100 bg-white shadow-lg">
-          <nav
-            id="mobile-navigation"
-            className="mx-auto flex max-h-[calc(100vh-5rem)] max-w-7xl flex-col overflow-y-auto px-6 py-5"
-            aria-label={sectionLabel}
-          >
-            {navigation.map((item) => (
-              <MobileMenuItem
-                key={item.href}
-                item={item}
-                pathname={pathname}
-                onNavigate={closeNavigation}
-              />
-            ))}
-
-            <Link
-              href="/donate"
-              onClick={closeNavigation}
-              className="mt-5 rounded-full bg-[#0B1B3A] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#162d5c]"
+        <div className="absolute left-0 right-0 top-full z-50 border-t border-slate-100 bg-white shadow-lg">
+          <div className="max-h-[calc(100dvh-5rem)] overflow-hidden">
+            <nav
+              id="mobile-navigation"
+              className="mx-auto flex max-h-[calc(100dvh-5rem)] max-w-7xl flex-col overflow-y-auto overscroll-contain px-6 py-5"
+              aria-label={label}
             >
-              Donate
-            </Link>
-          </nav>
+              {navigation.map((item) => (
+                <MobileMenuItem
+                  key={item.href}
+                  item={item}
+                  pathname={pathname}
+                  onNavigate={closeNavigation}
+                />
+              ))}
+
+              <Link
+                href="/donate"
+                onClick={closeNavigation}
+                className="mt-5 shrink-0 rounded-full bg-[#0B1B3A] px-5 py-3 text-center text-sm font-semibold text-white transition-colors hover:bg-[#162d5c]"
+              >
+                Donate
+              </Link>
+            </nav>
+          </div>
         </div>
       )}
     </div>

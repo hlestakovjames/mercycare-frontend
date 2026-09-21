@@ -4,22 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import {
-  mainNavigation,
-  sectionNavigation,
+  getContextualNavigation,
   type NavigationItem,
 } from "@/components/navigation/navigation";
-
-function getSectionKey(pathname: string) {
-  const segments = pathname.split("/").filter(Boolean);
-
-  if (segments.length === 0) {
-    return null;
-  }
-
-  const section = segments[0];
-
-  return sectionNavigation[section] ? section : null;
-}
 
 function isActiveLink(pathname: string, href: string) {
   if (href.includes("#")) {
@@ -48,7 +35,11 @@ function hasActiveDescendant(
   );
 }
 
-function Chevron({ direction = "down" }: { direction?: "down" | "right" }) {
+function Chevron({
+  direction = "down",
+}: {
+  direction?: "down" | "right";
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +82,9 @@ function DesktopMenuItem({
     return (
       <Link
         href={item.href}
-        aria-current={isActiveLink(pathname, item.href) ? "page" : undefined}
+        aria-current={
+          isActiveLink(pathname, item.href) ? "page" : undefined
+        }
         className={`block rounded-lg px-3 py-2 text-[12.5px] transition-colors ${
           isActiveLink(pathname, item.href)
             ? "bg-slate-50 font-semibold text-[#0B1B3A]"
@@ -120,7 +113,7 @@ function DesktopMenuItem({
         </Link>
 
         <div className="invisible absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-          <div className="min-w-54 rounded-xl border border-slate-200 bg-white p-1 shadow-xl">
+          <div className="min-w-[13.5rem] rounded-xl border border-slate-200 bg-white p-1 shadow-xl">
             {item.children.map((child) => (
               <DesktopMenuItem
                 key={child.href}
@@ -151,7 +144,7 @@ function DesktopMenuItem({
       </Link>
 
       <div className="invisible absolute left-full top-0 z-50 pl-2 opacity-0 transition-all duration-150 group-hover/sub:visible group-hover/sub:opacity-100">
-        <div className="min-w-54 rounded-xl border border-slate-200 bg-white p-1 shadow-xl">
+        <div className="min-w-[13.5rem] rounded-xl border border-slate-200 bg-white p-1 shadow-xl">
           {item.children.map((child) => (
             <DesktopMenuItem
               key={child.href}
@@ -168,20 +161,13 @@ function DesktopMenuItem({
 
 export default function DesktopNav() {
   const pathname = usePathname();
-  const sectionKey = getSectionKey(pathname);
 
-  const navigation = sectionKey
-    ? sectionNavigation[sectionKey].items
-    : mainNavigation;
-
-  const sectionLabel = sectionKey
-    ? sectionNavigation[sectionKey].label
-    : "Main navigation";
+  const { navigation, label } = getContextualNavigation(pathname);
 
   return (
     <nav
       className="hidden items-center gap-3.5 lg:flex"
-      aria-label={sectionLabel}
+      aria-label={label}
     >
       {navigation.map((item) => (
         <DesktopMenuItem
