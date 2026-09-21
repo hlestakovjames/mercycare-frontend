@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { getBlogRelationshipContext } from "./blogRelationships";
+import { getInternalRelationshipContext } from "./internalRelationshipEngine";
 
-export default function BlogInternalRelationships() {
+export default function InternalRelationships() {
   const pathname = usePathname();
-  const context = getBlogRelationshipContext(pathname);
+  const context = getInternalRelationshipContext(pathname);
 
   if (!context) {
     return null;
@@ -18,7 +18,7 @@ export default function BlogInternalRelationships() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-            MercyCare Media Center
+            {context.sectionLabel}
           </p>
 
           <h2 className="mt-3 text-3xl font-bold tracking-tight text-[#0B1B3A] sm:text-4xl">

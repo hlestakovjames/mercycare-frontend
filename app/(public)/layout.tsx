@@ -1,6 +1,7 @@
 import Header from "@/components/layout/Header";
 import UtilityBar from "@/components/layout/UtilityBar";
 import Footer from "@/components/layout/Footer";
+import InternalRelationships from "@/components/navigation/InternalRelationships";
 
 export default function PublicLayout({
   children,
@@ -12,7 +13,10 @@ export default function PublicLayout({
       <UtilityBar />
       <Header />
 
-      <main>{children}</main>
+      <main>
+        {children}
+        <InternalRelationships />
+      </main>
 
       <Footer />
     </>

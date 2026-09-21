@@ -545,9 +545,58 @@ export const sectionNavigation: Record<string, SectionNavigation> = {
     label: "MercyCare Gallery",
     href: "/gallery",
     items: [
-      { name: "All Media", href: "/gallery" },
-      { name: "Photos", href: "/gallery/photos" },
-      { name: "Videos", href: "/gallery/videos" },
+      { name: "Overview", href: "/gallery" },
+      {
+        name: "Photo Gallery",
+        href: "/gallery/photos",
+        children: [
+          { name: "Overview", href: "/gallery/photos" },
+          {
+            name: "Community & Outreach",
+            href: "/gallery/photos/community-outreach",
+          },
+          {
+            name: "Health & Wellness",
+            href: "/gallery/photos/health-wellness",
+          },
+          {
+            name: "Tuko Pamoja",
+            href: "/gallery/photos/tuko-pamoja",
+          },
+          {
+            name: "Mama na Mtoto",
+            href: "/gallery/photos/mama-na-mtoto",
+          },
+          {
+            name: "Events & Activities",
+            href: "/gallery/photos/events-activities",
+          },
+        ],
+      },
+      {
+        name: "Stories in Pictures",
+        href: "/gallery/stories-in-pictures",
+      },
+      {
+        name: "Videos",
+        href: "/gallery/videos",
+      },
+      {
+        name: "Campaigns & Awareness",
+        href: "/gallery/campaigns-awareness",
+      },
+      {
+        name: "Community Moments",
+        href: "/gallery/community-moments",
+      },
+      {
+        name: "Gallery Archive",
+        href: "/gallery/archive",
+      },
+      {
+        name: "Get Involved",
+        href: "/gallery/get-involved",
+      },
     ],
   },
 
@@ -605,76 +654,51 @@ export function getContextualNavigation(pathname: string): {
   }
 
   const section = segments[0];
+  const sectionConfig = sectionNavigation[section];
 
-  if (section !== "blog") {
-    const sectionConfig = sectionNavigation[section];
-
-    if (sectionConfig) {
-      return {
-        navigation: sectionConfig.items,
-        label: sectionConfig.label,
-      };
-    }
-
+  if (!sectionConfig) {
     return {
       navigation: mainNavigation,
       label: "Main navigation",
     };
   }
 
-  const blogSection = sectionNavigation.blog;
+  if (segments.length === 1) {
+    return {
+      navigation: sectionConfig.items,
+      label: sectionConfig.label,
+    };
+  }
 
-  let currentItems = blogSection.items;
-  let currentLabel = blogSection.label;
-  let bestNavigation = blogSection.items;
-  let bestLabel = blogSection.label;
+  let bestNavigation = sectionConfig.items;
+  let bestLabel = sectionConfig.label;
 
-  const findBlogContext = (
+  const findContext = (
     items: NavigationItem[],
-    currentIndex: number,
   ): void => {
     for (const item of items) {
-      const hrefSegments = item.href.split("/").filter(Boolean);
+      const itemPath = item.href.replace(/\/$/, "");
+      const normalizedPath = pathname.replace(/\/$/, "");
 
       if (
-        hrefSegments.length > currentIndex &&
-        hrefSegments[currentIndex] === segments[currentIndex]
+        normalizedPath === itemPath ||
+        normalizedPath.startsWith(`${itemPath}/`)
       ) {
         if (item.children?.length) {
           bestNavigation = item.children;
           bestLabel = item.name;
-        }
 
-        if (
-          hrefSegments.length === segments.length &&
-          item.children?.length
-        ) {
-          bestNavigation = item.children;
-          bestLabel = item.name;
-          return;
+          findContext(item.children);
         }
-
-        if (item.children?.length) {
-          findBlogContext(item.children, currentIndex + 1);
-        }
-
-        return;
       }
     }
   };
 
-  if (segments.length === 1 && segments[0] === "blog") {
-    return {
-      navigation: blogSection.items,
-      label: blogSection.label,
-    };
-  }
-
-  findBlogContext(currentItems, 1);
+  findContext(sectionConfig.items);
 
   return {
     navigation: bestNavigation,
-    label: bestLabel || currentLabel,
+    label: bestLabel,
   };
 }
 
